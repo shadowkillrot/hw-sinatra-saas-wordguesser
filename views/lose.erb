@@ -1,11 +1,6 @@
 <style>
   body {
-    background: linear-gradient(135deg, #eb3349 0%, #f45c43 100%);
-  }
-  .emoji {
-    font-size: 5rem;
-    text-align: center;
-    margin-bottom: 20px;
+    background: red;
   }
   .lose-title {
     color: #dc3545;
@@ -33,12 +28,11 @@
   }
 </style>
 
-<div class="emoji">💀</div>
-<h1 class="lose-title">Sorry, you lose!</h1>
+<h1 class="lose-title">Sorry, you lose</h1>
 <p class="message">Sorry, you ran out of guesses!</p>
 <p class="message">The word was:</p>
 <div class="word-reveal"><%= @game.word.upcase %></div>
-<p class="message">Better luck next time!</p>
+<p class="message">Better luck next time</p>
 <div class="try-again">
   <form action="/create" method="post">
     <button type="submit">Try Again</button>

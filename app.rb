@@ -97,7 +97,7 @@ class WordGuesserApp < Sinatra::Base
     if @game.check_win_or_lose == :lose
       erb :lose
     else
-      flash[:message] = "You must finish the game first!"
+      flash[:message] = "You must finish the game first"
       redirect '/show'
     end
   end

@@ -83,7 +83,7 @@
     border-color: #667eea;
   }
   .new-game {
-    background: linear-gradient(135deg, #28a745, #20c997);
+    background-color: blue;
     margin-top: 20px;
   }
   .hint {
@@ -92,15 +92,6 @@
     border-top: 1px solid #ddd;
     text-align: center;
     color: #666;
-  }
-  @media (max-width: 600px) {
-    .word-display {
-      font-size: 2rem;
-      letter-spacing: 5px;
-    }
-    .game-info {
-      grid-template-columns: 1fr;
-    }
   }
 </style>
 
@@ -123,7 +114,7 @@
 
 <% if @game.wrong_guesses.length > 0 %>
   <div class="letters">
-    <h3>❌ Wrong Letters:</h3>
+    <h3>Wrong Letters:</h3>
     <div class="letter-list wrong">
       <span class="guesses"><%= @game.wrong_guesses.chars.join(', ') %></span>
     </div>
@@ -132,7 +123,7 @@
 
 <% if @game.guesses.length > 0 %>
   <div class="letters">
-    <h3>✅ Correct Letters:</h3>
+    <h3>Correct Letters:</h3>
     <div class="letter-list correct"><%= @game.guesses.chars.join(' ') %></div>
   </div>
 <% end %>
@@ -147,11 +138,11 @@
 </form>
 
 <form action="/create" method="post" style="text-align: center;">
-  <button type="submit" class="new-game">🔄 New Game</button>
+  <button type="submit" class="new-game">New Game</button>
 </form>
 
 <div class="hint">
-  <p>💡 Guess letters to reveal the word. You have 7 wrong guesses!</p>
+  <p>Guess letters to reveal the word. You have 7 wrong guesses!</p>
 </div>
 
 <script>
