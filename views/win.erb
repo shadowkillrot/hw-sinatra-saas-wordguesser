@@ -1,8 +1,50 @@
-<h1>You Win!</h1>
+<style>
+  body {
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+  }
+  .emoji {
+    font-size: 5rem;
+    text-align: center;
+    margin-bottom: 20px;
+    animation: pulse 1s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+  }
+  .win-title {
+    color: #28a745;
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .word-reveal {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #667eea;
+    text-align: center;
+    margin: 30px 0;
+    letter-spacing: 5px;
+  }
+  .message {
+    color: #666;
+    font-size: 1.2rem;
+    text-align: center;
+    margin: 20px 0;
+  }
+  .play-again {
+    text-align: center;
+    margin-top: 20px;
+  }
+</style>
 
-<div class="alert alert-success">
-  The word was
-  <span class="win"><%= @game.word %></span>.
+<div class="emoji">🎉</div>
+<h1 class="win-title">You Won!</h1>
+<p class="message">Congratulations! You guessed the word:</p>
+<div class="word-reveal"><%= @game.word.upcase %></div>
+<p class="message">You made <strong><%= @game.wrong_guesses.length %></strong> wrong guess<%= @game.wrong_guesses.length == 1 ? '' : 'es' %>.</p>
+<div class="play-again">
+  <form action="/create" method="post">
+    <button type="submit">Play Again</button>
+  </form>
 </div>
-
-<%= erb :new %>
