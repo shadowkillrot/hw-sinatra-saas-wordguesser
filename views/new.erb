@@ -1,6 +1,24 @@
-<!-- This form is incomplete--it needs a destination URL as well as a method: -->
-<form method="post">
-  <div class="form-row py-3 border-top">
-    <input type="submit" value="New Game" class="col-md-2 offset-md-5 btn btn-primary form-control"/>
-  </div>
+<style>
+  .emoji {
+    font-size: 4rem;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .welcome-text {
+    color: #666;
+    font-size: 1.2rem;
+    text-align: center;
+    margin: 20px 0;
+  }
+  .new-game-form {
+    text-align: center;
+    margin: 30px 0;
+  }
+</style>
+
+<div class="emoji">🎯</div>
+<h1>Word Guesser Game</h1>
+<p class="welcome-text">Try to guess the secret word one letter at a time!</p>
+<form action="/create" method="post" class="new-game-form">
+  <button type="submit">New Game</button>
 </form>
