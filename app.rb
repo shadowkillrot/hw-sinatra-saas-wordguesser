@@ -5,6 +5,10 @@ require './lib/wordguesser_game.rb'
 class WordGuesserApp < Sinatra::Base
   register Sinatra::Flash
 
+  disable :protection
+  disable :show_exceptions
+  set :protection, false
+  
   configure do
     enable :sessions
     set :session_store, Rack::Session::Cookie
@@ -16,6 +20,18 @@ class WordGuesserApp < Sinatra::Base
                      require 'securerandom'
                      SecureRandom.hex(64) 
                    }
+    
+   
+    set :bind, '0.0.0.0'
+    
+    
+    set :allowed_origins, '*'
+  end
+  
+  
+  def self.call(env)
+    env['HTTP_HOST'] = env['SERVER_NAME'] if env['HTTP_HOST'].nil?
+    super(env)
   end
   
   before do
